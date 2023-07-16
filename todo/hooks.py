@@ -7,6 +7,14 @@ app_description = "This is a to-do list app."
 app_email = "todo@gmail.com"
 app_license = "y"
 
+from frappe import whitelist
+
+@whitelist(allow_guest=True)
+def get_list(*args, **kwargs):
+    # Function implementation
+    pass
+
+
 # Includes in <head>
 # ------------------
 
@@ -199,3 +207,5 @@ app_license = "y"
 # auth_hooks = [
 #	"todo.auth.validate"
 # ]
+
+website_route_rules = [{'from_route': '/frontend/<path:app_path>', 'to_route': 'frontend'},]
